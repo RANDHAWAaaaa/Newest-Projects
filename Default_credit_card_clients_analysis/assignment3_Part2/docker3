@@ -1,0 +1,47 @@
+FROM python:3
+
+RUN mkdir flask
+RUN cd flask
+RUN mkdir “static”
+
+
+#Add Required files
+
+ADD static/css/bootstrap.min.css /static/css
+
+
+
+#Create templates directory
+RUN mkdir “templates”
+
+#Add Required files
+
+ENV S3_KEY 1
+ENV S3_SECRET_ACCESS_KEY 1
+ADD templates/Csv_Success.html /templates/
+ADD templates/dashboard.html /templates/
+ADD templates/fill_form.html /templates/
+ADD templates/form_success.html /templates/
+ADD templates/main.html /templates/
+ADD templates/restAPI_calls.html /templates/
+ADD templates/upload_csv.html /templates/
+
+
+Run pip3 install pandas
+Run pip3 install boto
+Run pip3 install boto3
+Run pip3 install requests
+Run pip3 install bs4
+Run pip3 install matplotlib
+Run pip3 install seaborn
+Run pip3 install numpy
+Run pip3 install xlrd
+Run pip3 install imblearn
+Run pip3 install sklearn
+Run pip3 install wget
+
+ADD app.py .
+
+EXPOSE 5000
+
+CMD ["sh","-c","python /usr/local/src/assg/app.py ${S3_KEY} ${S3_SECRET_ACCESS_KEY}"]

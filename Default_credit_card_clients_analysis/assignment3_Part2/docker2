@@ -1,0 +1,28 @@
+FROM python:latest
+RUN cd
+WORKDIR cd
+
+RUN mkdir -p static
+RUN mkdir -p templates
+RUN mkdir -p Output
+ENV S3_KEY 1
+ENV S3_SECRET_ACCESS_KEY 1
+ADD __pycache__ .
+ADD static static/.
+ADD templates templates/.
+ADD app.py .
+Run pip3 install pandas
+Run pip3 install boto
+Run pip3 install boto3
+Run pip3 install requests
+Run pip3 install bs4
+Run pip3 install matplotlib
+Run pip3 install seaborn
+Run pip3 install numpy
+Run pip3 install xlrd
+Run pip3 install imblearn
+Run pip3 install sklearn
+Run pip3 install wget
+
+EXPOSE 80
+CMD ["sh","-c","python /usr/local/src/assg/app.py ${S3_KEY} ${S3_SECRET_ACCESS_KEY}"]

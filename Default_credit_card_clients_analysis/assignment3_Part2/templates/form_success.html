@@ -1,0 +1,39 @@
+ <div class="container">
+ <link href="{{ url_for('static', filename= 'css/bootstrap.min.css')}}" rel= "stylesheet">
+<h1  style="color: orange">
+   Your prediction values are as follows:
+</h1>
+<p>
+A.) Predicted value Random Forest Model	
+B.) Predicted value  Logistic Regression Model
+C.) Predicted value Extra Trees Classifier
+D.) Predicted value K Nearest Neighbours Model
+E.) Predicted value BernoulliNb Model
+
+</p>
+
+{% block content %} 
+<!--<table align="center" class="table table-striped">
+	<tr>
+    <th>Random Forest Model	</th>
+    <th>Logistic Regression Model</th>
+    <th>Extra Trees Classifier</th>
+    <th>K Nearest Neighbours Model</th>
+    <th>BernoulliNb Model</th>
+
+  </tr>
+	<tr>-->
+
+	 <h1>{{titles[0]}}</h1>
+	  {{ tables[0]|safe }}
+	<!-->
+    	<td>{{item[0]}}</td>
+    	<td>{{item[1]}}</td>
+    	<td>{{item[2]}}</td>
+    	<td>{{item[3]}}</td>
+    	<td>{{item[4]}}</td>
+	<-->
+<!--	</tr>
+</table>-->
+{% endblock %}
+</div>
